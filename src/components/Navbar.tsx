@@ -151,7 +151,7 @@ export function Navbar({
                     Mt. Ararat Shinners
                   </span>
                   <span
-                    className={`text-[11px] tracking-wider uppercase mt-0.5 font-medium ${
+                    className={`text-[10px] sm:text-[11px] tracking-normal mt-0.5 font-medium ${
                       isScrolled
                         ? isNightMode
                           ? 'text-emerald-300'
@@ -159,7 +159,7 @@ export function Navbar({
                         : 'text-emerald-200'
                     }`}
                   >
-                    Eldoret · Shine Every Day
+                    Excellence Is a Habit Not an Act, Shine Every Day
                   </span>
                 </div>
               </a>
@@ -284,8 +284,8 @@ export function Navbar({
                     <span className="font-heading font-bold text-sm leading-tight">
                       Mt. Ararat Shinners
                     </span>
-                    <span className="text-[11px] text-emerald-500 font-medium">
-                      Eldoret · Shine Every Day
+                    <span className="text-[10px] sm:text-[11px] text-emerald-500 font-medium">
+                      Excellence Is a Habit Not an Act, Shine Every Day
                     </span>
                   </div>
                 </div>

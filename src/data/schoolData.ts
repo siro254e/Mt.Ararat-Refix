@@ -10,6 +10,7 @@ import culturalChoirImage from '../assets/images/regenerated_image_1793726941692
 import classroomMathImage from '../assets/images/regenerated_image_1793772363953.png';
 import outdoorGalleryImage from '../assets/images/regenerated_image_1793772735251.png';
 import outdoorSchoolLifeImage from '../assets/images/regenerated_image_1793772739627.png';
+import creativeGalleryImage from '../assets/images/regenerated_image_1793789656211.jpg';
 
 export const SCHOOL_INFO = {
   name: "Mt. Ararat Shinners School",
@@ -42,6 +43,7 @@ export const IMAGES = {
   outdoor: outdoorSchoolLifeImage,
   outdoorGallery: outdoorGalleryImage,
   creative: creativeArtImage,
+  creativeGallery: creativeGalleryImage,
   library: "/images/library_reading_1791620683626.webp",
   faculty: "/images/faculty_group_team_1791626994993.webp",
   facultyHead: "/images/faculty_headteacher_1791624460512.webp",
@@ -143,7 +145,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     id: "gal-4",
     title: "Mural Painting & Expressive Arts",
     category: "Arts",
-    image: IMAGES.creative,
+    image: IMAGES.creativeGallery,
     alt: "Primary school students painting an expressive collective artwork table mural",
     caption: "Creative arts workshop celebrating community, nature, and color harmony.",
     aspectRatio: "landscape"

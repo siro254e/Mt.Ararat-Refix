@@ -629,7 +629,7 @@ export function LocationContact({ onOpenEnquiry }: LocationContactProps) {
                         <text x="56" y="34" fill="#FFFFFF" fontSize="12" fontWeight="bold">Mt. Ararat Shinners</text>
                         <text x="56" y="49" fill="#A7F3D0" fontSize="10" fontWeight="600">School Campus</text>
                         <text x="18" y="72" fill="#FFFFFF" fontSize="9" opacity="0.9">Next to Silas Police Station</text>
-                        <text x="18" y="86" fill="#FDE047" fontSize="7.5" fontWeight="bold">&quot;Excellence Is a Habit Not an Act, Shine EveryDay&quot;</text>
+                        <text x="18" y="86" fill="#FDE047" fontSize="7.5" fontWeight="bold">&quot;Excellence Is a Habit Not an Act, Shine Every Day.&quot;</text>
                       </g>
 
                       {/* Connecting Direction Arrow between Silas Station and School */}
