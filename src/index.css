@@ -1,0 +1,233 @@
+@import "tailwindcss";
+
+/* Refined type scale — larger, more comfortable reading sizes.
+   Tailwind v4 reads these variables, so the whole site scales consistently. */
+@theme {
+  --text-xs: 0.8125rem;   /* 13px */
+  --text-xs--line-height: 1.55;
+  --text-sm: 0.9375rem;   /* 15px */
+  --text-sm--line-height: 1.65;
+  --text-base: 1.0625rem; /* 17px */
+  --text-base--line-height: 1.7;
+  --text-lg: 1.1875rem;   /* 19px */
+  --text-lg--line-height: 1.65;
+  --text-xl: 1.3125rem;   /* 21px */
+  --text-xl--line-height: 1.55;
+  --text-2xl: 1.625rem;   /* 26px */
+  --text-2xl--line-height: 1.35;
+  --text-3xl: 2.0625rem;  /* 33px */
+  --text-3xl--line-height: 1.22;
+  --text-4xl: 2.5rem;     /* 40px */
+  --text-4xl--line-height: 1.15;
+  --text-5xl: 3.25rem;    /* 52px */
+  --text-5xl--line-height: 1.08;
+  --text-6xl: 3.75rem;    /* 60px */
+  --text-6xl--line-height: 1.05;
+}
+
+@layer base {
+  :root {
+    --shinners-emerald: #087A50;
+    --shinners-forest: #075638;
+    --shinners-forest-dark: #053c27;
+    --shinners-soft-grey: #F2F3F2;
+    --shinners-silver: #C6C9C7;
+    --shinners-charcoal: #252B28;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    color: #252B28;
+    background-color: #FFFFFF;
+    overflow-x: hidden;
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+
+  html.dark,
+  body.dark {
+    color: #F2F3F2;
+    background-color: #041c12;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.022em;
+    line-height: 1.12;
+    font-optical-sizing: auto;
+  }
+
+  h1 { letter-spacing: -0.03em; }
+  h2 { letter-spacing: -0.026em; }
+
+  p { text-wrap: pretty; }
+}
+
+/* Plaid-inspired fine line motif derived from the school uniform's pleated grey skirt */
+.bg-plaid-subtle {
+  background-color: #F8F9F8;
+  background-image: 
+    linear-gradient(to right, rgba(198, 201, 199, 0.18) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(198, 201, 199, 0.18) 1px, transparent 1px),
+    linear-gradient(to right, rgba(8, 122, 80, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(8, 122, 80, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px, 32px 32px, 96px 96px, 96px 96px;
+  transition: background-color 0.4s ease;
+}
+
+.dark .bg-plaid-subtle {
+  background-color: #052618;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to right, rgba(8, 122, 80, 0.16) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(8, 122, 80, 0.16) 1px, transparent 1px);
+  background-size: 32px 32px, 32px 32px, 96px 96px, 96px 96px;
+}
+
+.bg-plaid-dark {
+  background-color: #075638;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to right, rgba(8, 122, 80, 0.2) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(8, 122, 80, 0.2) 1px, transparent 1px);
+  background-size: 40px 40px, 40px 40px, 120px 120px, 120px 120px;
+}
+
+/* Subtle animated light sweep for "Shine Every Day" */
+@keyframes shineSweep {
+  0% {
+    transform: translateX(-100%) rotate(25deg);
+  }
+  50%, 100% {
+    transform: translateX(200%) rotate(25deg);
+  }
+}
+
+.animate-shine-sweep {
+  animation: shineSweep 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes gentleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-gentle-float {
+  animation: gentleFloat 6s ease-in-out infinite;
+}
+
+/* Ken Burns subtle slow ambient breathing for hero photo */
+@keyframes kenBurnsSlow {
+  0% {
+    transform: scale(1.02) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.08) translate(-1%, -1%);
+  }
+  100% {
+    transform: scale(1.02) translate(0, 0);
+  }
+}
+
+.animate-ken-burns {
+  animation: kenBurnsSlow 24s ease-in-out infinite;
+}
+
+/* Dynamic Interactive Photo Hover Card System */
+.photo-interactive-card {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.4s ease;
+}
+
+.photo-interactive-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 35px -10px rgba(8, 122, 80, 0.22),
+              0 8px 16px -6px rgba(7, 86, 56, 0.15);
+  border-color: rgba(8, 122, 80, 0.6);
+}
+
+.dark .photo-interactive-card:hover {
+  box-shadow: 0 20px 35px -10px rgba(8, 122, 80, 0.4),
+              0 8px 16px -6px rgba(5, 60, 39, 0.3);
+  border-color: rgba(16, 185, 129, 0.7);
+}
+
+.photo-interactive-image {
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.7s ease;
+}
+
+.photo-interactive-card:hover .photo-interactive-image {
+  transform: scale(1.09);
+  filter: contrast(1.04) brightness(1.03);
+}
+
+/* Luminous diagonal light sheen on mouse hover */
+.photo-sheen-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: inherit;
+  z-index: 15;
+}
+
+.photo-sheen-overlay::after {
+  content: '';
+  position: absolute;
+  top: -60%;
+  left: -80%;
+  width: 50%;
+  height: 220%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.22) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(28deg);
+  opacity: 0;
+  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease;
+}
+
+.photo-interactive-card:hover .photo-sheen-overlay::after {
+  transform: translate(320%, 0) rotate(28deg);
+  opacity: 1;
+}
+
+/* Accessible reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0s !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Cinematic IntersectionObserver Section Scroll Reveal */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+

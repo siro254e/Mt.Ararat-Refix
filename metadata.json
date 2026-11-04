@@ -1,0 +1,6 @@
+{
+  "name": "Mt. Ararat Shinners School",
+  "description": "Official website for Mt. Ararat Shinners School in Kapsoya Estate, Eldoret, Kenya. Excellence Is a Habit Not an Act, Shine Every Day.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
