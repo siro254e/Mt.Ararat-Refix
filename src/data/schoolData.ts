@@ -3,10 +3,13 @@ import schoolBusImage from '../assets/images/regenerated_image_1793355637073.png
 import schoolVanImage from '../assets/images/regenerated_image_1793355638545.png';
 import fellowshipLawnImage from '../assets/images/regenerated_image_1793355813219.png';
 import classroomImage from '../assets/images/regenerated_image_1793726935129.png';
-import creativeArtImage from '../assets/images/regenerated_image_1793726931844.jpg';
+import creativeArtImage from '../assets/images/regenerated_image_1793773254289.png';
 import aboutUsImage from '../assets/images/regenerated_image_1793726938222.jpg';
 import culturalDanceImage from '../assets/images/regenerated_image_1793726939084.png';
 import culturalChoirImage from '../assets/images/regenerated_image_1793726941692.png';
+import classroomMathImage from '../assets/images/regenerated_image_1793772363953.png';
+import outdoorGalleryImage from '../assets/images/regenerated_image_1793772735251.png';
+import outdoorSchoolLifeImage from '../assets/images/regenerated_image_1793772739627.png';
 
 export const SCHOOL_INFO = {
   name: "Mt. Ararat Shinners School",
@@ -36,7 +39,8 @@ export const IMAGES = {
   hero: "/images/hero_shinners_students_1791620642209.webp",
   aboutUs: aboutUsImage,
   classroom: classroomImage,
-  outdoor: "/images/regenerated_image_1791629684201.webp",
+  outdoor: outdoorSchoolLifeImage,
+  outdoorGallery: outdoorGalleryImage,
   creative: creativeArtImage,
   library: "/images/library_reading_1791620683626.webp",
   faculty: "/images/faculty_group_team_1791626994993.webp",
@@ -50,7 +54,7 @@ export const IMAGES = {
   fellowshipLawn: fellowshipLawnImage,
   culturalDance: culturalDanceImage,
   culturalChoir: culturalChoirImage,
-  classroomMath: "/images/classroom_math_lesson_1791912038385.webp",
+  classroomMath: classroomMathImage,
   schoolBus: schoolBusImage,
   schoolVan: schoolVanImage,
   studentsLawn: "/assets/aistudio/Smiling_Students_on_the_School_Lawn_777b614e.png"
@@ -130,7 +134,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     id: "gal-3",
     title: "Hands-on Nature & Environmental Science",
     category: "Discovery",
-    image: IMAGES.outdoor,
+    image: IMAGES.outdoorGallery,
     alt: "Learners exploring nature samples with magnifying glasses outdoors in Eldoret",
     caption: "Experiential outdoor science session discovering flora and local ecology.",
     aspectRatio: "landscape"
