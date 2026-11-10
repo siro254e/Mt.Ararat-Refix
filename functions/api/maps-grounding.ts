@@ -4,6 +4,15 @@ interface Env {
   GEMINI_API_KEY?: string;
 }
 
+type PagesFunction<T = unknown> = (context: {
+  request: Request;
+  env: T;
+  params?: Record<string, string>;
+  data?: Record<string, unknown>;
+  next?: () => Promise<Response>;
+  waitUntil?: (promise: Promise<unknown>) => void;
+}) => Promise<Response>;
+
 const FALLBACK_TEXT =
   'Mt. Ararat Shinners School is located in Kapsoya Estate, Eldoret, Kenya, directly next to Silas Police Station. From Eldoret Town Centre (Uganda Road), take the Kapsoya Estate road heading east. Silas Police Station is the primary landmark on your left, with the school directly adjacent.';
 

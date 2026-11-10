@@ -1,8 +1,11 @@
-import { ArrowUp, MapPin, Sparkles, ShieldCheck, Phone, MessageCircle } from 'lucide-react';
+import { useState } from 'react';
+import { ArrowUp, MapPin, Sparkles, ShieldCheck, Phone, MessageCircle, Youtube, Play, ExternalLink } from 'lucide-react';
 import { SCHOOL_INFO } from '../data/schoolData';
 import { SchoolLogo } from './SchoolLogo';
 
 export function Footer() {
+  const [playingVideoId, setPlayingVideoId] = useState<string | null>(null);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -49,9 +52,40 @@ export function Footer() {
               Discover a nurturing learning environment where curiosity grows, confidence flourishes, and every learner is encouraged to shine every day.
             </p>
 
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white/10 border border-white/20 text-xs font-semibold text-emerald-200">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-300" />
-              <span>Motto: &quot;{SCHOOL_INFO.motto}&quot;</span>
+            <div className="flex flex-wrap items-center gap-2 pt-1">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/10 border border-white/20 text-xs font-semibold text-emerald-200">
+                <Sparkles className="w-3.5 h-3.5 text-emerald-300" />
+                <span>Motto: &quot;{SCHOOL_INFO.motto}&quot;</span>
+              </div>
+            </div>
+
+            {/* Quick Social Badges */}
+            <div className="pt-2">
+              <div className="text-[11px] font-bold uppercase tracking-wider text-emerald-300 mb-2">
+                Connect on Socials:
+              </div>
+              <div className="flex flex-wrap items-center gap-2">
+                <a
+                  href={SCHOOL_INFO.socials.youtube1}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white text-xs font-semibold transition-all shadow-xs"
+                  aria-label="YouTube Channel"
+                >
+                  <Youtube className="w-3.5 h-3.5 fill-white" />
+                  <span>YouTube Channel</span>
+                </a>
+                <a
+                  href={SCHOOL_INFO.contactPlaceholders.whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#25D366] hover:bg-[#1EBE5D] text-white text-xs font-semibold transition-all shadow-xs"
+                  aria-label="WhatsApp"
+                >
+                  <MessageCircle className="w-3.5 h-3.5" />
+                  <span>WhatsApp</span>
+                </a>
+              </div>
             </div>
           </div>
 
@@ -125,10 +159,153 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar with Copyright & Back to Top */}
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-emerald-200/70">
+        {/* Dedicated YouTube Videos & Socials Showcase Section */}
+        <div className="py-10 border-b border-white/15">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+            <div>
+              <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-red-600/20 text-red-200 border border-red-500/30 text-xs font-bold uppercase tracking-wider mb-2">
+                <Youtube className="w-4 h-4 text-red-500 fill-red-500" />
+                <span>Our Socials &amp; Video Highlights</span>
+              </div>
+              <h4 className="font-heading font-extrabold text-xl sm:text-2xl text-white">
+                Watch Life at Mt. Ararat Shinners on YouTube
+              </h4>
+              <p className="text-xs sm:text-sm text-emerald-100/80 max-w-xl mt-1">
+                Explore our graduation ceremonies, school tours, and academic celebrations through official video coverage.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-2 shrink-0">
+              <a
+                href={SCHOOL_INFO.socials.youtube1}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-bold transition-all shadow-sm active:scale-98"
+              >
+                <Youtube className="w-4 h-4 fill-white" />
+                <span>Watch on YouTube</span>
+                <ExternalLink className="w-3.5 h-3.5 opacity-80" />
+              </a>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {SCHOOL_INFO.youtubeVideos.map((video) => {
+              const isPlaying = playingVideoId === video.id;
+
+              return (
+                <div
+                  key={video.id}
+                  className="group rounded-2xl overflow-hidden border border-white/15 bg-[#053c27]/90 shadow-md flex flex-col justify-between transition-all hover:border-emerald-400/40"
+                >
+                  <div className="relative aspect-video w-full bg-black/70 overflow-hidden">
+                    {isPlaying ? (
+                      <iframe
+                        src={`https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1`}
+                        title={video.title}
+                        className="w-full h-full border-0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                      />
+                    ) : (
+                      <div
+                        onClick={() => setPlayingVideoId(video.id)}
+                        className="relative w-full h-full cursor-pointer group"
+                      >
+                        <img
+                          src={video.thumbnail}
+                          alt={video.title}
+                          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/20" />
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="w-14 h-14 rounded-full bg-red-600/95 text-white flex items-center justify-center shadow-xl transition-transform duration-300 group-hover:scale-115 group-hover:bg-red-600">
+                            <Play className="w-6 h-6 fill-white ml-0.5" />
+                          </div>
+                        </div>
+                        <div className="absolute top-3 left-3">
+                          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[11px] font-semibold text-white border border-white/20">
+                            <Youtube className="w-3.5 h-3.5 text-red-500 fill-red-500" />
+                            <span>YouTube Video</span>
+                          </span>
+                        </div>
+                        <div className="absolute bottom-3 right-3">
+                          <span className="px-2 py-0.5 rounded bg-black/80 text-[10px] font-mono text-emerald-200">
+                            Click to Play
+                          </span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div>
+                      <div className="text-[11px] font-semibold text-emerald-300 uppercase tracking-wider">
+                        {video.subtitle}
+                      </div>
+                      <h5 className="font-heading font-bold text-sm sm:text-base text-white mt-0.5 leading-snug">
+                        {video.title}
+                      </h5>
+                    </div>
+
+                    <div className="flex items-center gap-2 shrink-0">
+                      <a
+                        href={video.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-semibold transition-colors"
+                      >
+                        <span>Open on YouTube</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Bottom Bar with Copyright, Socials & Back to Top */}
+        <div className="mt-8 flex flex-col lg:flex-row items-center justify-between gap-4 text-xs text-emerald-200/70">
           <div>
             © {new Date().getFullYear()} Mt. Ararat Shinners School. All rights reserved. · Kapsoya Estate, Eldoret.
+          </div>
+
+          {/* Socials Link Strip */}
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <span className="font-semibold text-emerald-300 mr-1">Socials:</span>
+            <a
+              href={SCHOOL_INFO.socials.youtube1}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/10 hover:bg-red-600 text-white transition-colors"
+              title="Watch PP2 Graduation on YouTube"
+            >
+              <Youtube className="w-3.5 h-3.5 text-red-400 fill-red-400" />
+              <span>PP2 Graduation</span>
+            </a>
+            <a
+              href={SCHOOL_INFO.socials.youtube2}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/10 hover:bg-red-600 text-white transition-colors"
+              title="Watch School Showcase on YouTube"
+            >
+              <Youtube className="w-3.5 h-3.5 text-red-400 fill-red-400" />
+              <span>School Showcase</span>
+            </a>
+            <a
+              href={SCHOOL_INFO.contactPlaceholders.whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/10 hover:bg-[#25D366] text-white transition-colors"
+              title="Chat on WhatsApp"
+            >
+              <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
+              <span>WhatsApp</span>
+            </a>
           </div>
 
           <button

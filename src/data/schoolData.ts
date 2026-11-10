@@ -33,7 +33,28 @@ export const SCHOOL_INFO = {
     whatsappLink: "https://wa.me/254768358487?text=Hello%20Mt.%20Ararat%20Shinners%20School%2C%20I%20would%20like%20to%20enquire%20about%20admissions.",
     email: "",
     officeHours: "Monday – Friday: 7:30 AM – 4:30 PM"
-  }
+  },
+  socials: {
+    whatsapp: "https://wa.me/254768358487?text=Hello%20Mt.%20Ararat%20Shinners%20School%2C%20I%20would%20like%20to%20enquire%20about%20admissions.",
+    youtube1: "https://www.youtube.com/watch?v=OTbDSdyovDg",
+    youtube2: "https://www.youtube.com/watch?v=X8muOqI7psY"
+  },
+  youtubeVideos: [
+    {
+      id: "OTbDSdyovDg",
+      title: "PP2 Graduation Ceremony: Celebration, Success & New Beginnings",
+      subtitle: "Mt. Ararat & JSS Ceremony",
+      url: "https://www.youtube.com/watch?v=OTbDSdyovDg",
+      thumbnail: "https://i.ytimg.com/vi/OTbDSdyovDg/hqdefault.jpg"
+    },
+    {
+      id: "X8muOqI7psY",
+      title: "Mt. Ararat Shinners & Junior Secondary School Documentary Showcase",
+      subtitle: "Campus Life & Excellence",
+      url: "https://www.youtube.com/watch?v=X8muOqI7psY",
+      thumbnail: "https://i.ytimg.com/vi/X8muOqI7psY/hqdefault.jpg"
+    }
+  ]
 };
 
 export const IMAGES = {
